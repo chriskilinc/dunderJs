@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>dunderJs</title>
+	<!-- ==Stylesheets== -->
+	<!-- Bootstrap css -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<!-- Custom Css -->
+	<link rel="stylesheet" href="css/style.css">
+	<!-- ==Scripts== -->
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- AngularJs -->
+	<!-- Angular for dev - Should comment this out when in release -->
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<!-- Angular delivered by google api -->
+	<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>-->
+	<!-- ==Angular files== -->
+	<script src="js/angular/dunderApp.js"></script>
+	<script src="js/angular/dunderController.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script type="text/javascript" src="js/bootstrap.min.js" defer></script>
+</head>
+
+<body ng-app="dunderApp" ng-controller="dunderController">
+	<!-- Föreningen -->
+	<div class="row section col-lg-offset-1 col-lg-10">
+		<div id="NewscardsSection">
+			<div class="slide-content">
+				<!-- == Newscards section == -->
+				<div class="row newscards">
+					<!-- Newscard repeater -->
+					<div class="col-lg-6 col-md-12 col-xs-12 newscard" ng-repeat="article in articles">
+						<div class="newscard-container">
+							<p class="ribbon" style="background-color: {{article.ribbonColor}}; color:{{article.ribbonTextColor}}; ">{{article.ribbon}}</p>
+							<div class="newscard-header">
+								<h1>{{article.title}}</h1>
+								<p><span>Publiserat den</span> {{article.date}} <span>klockan</span> {{article.datetime}} <span>av {{article.user}}</span>									</p>
+
+							</div>
+							<div class="newscard-content">
+								<p ng-bind-html="article.content">{{article.content}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
